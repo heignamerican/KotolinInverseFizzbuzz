@@ -1,6 +1,6 @@
 class InverseFizzbuzzLogic {
     class object {
-        fun getInverseFizzbuzzMap(aStart: Int, aEnd: Int, aRule: Fizzbuzz3and5): Map<List<String>, Result> {
+        fun getInverseFizzbuzzMap(aStart: Int, aEnd: Int, aRule: FizzbuzzRule): Map<List<String>, Result> {
             return  (aStart..aEnd).flatMap { y-> IntRange(aStart, y - 1).map { x -> x..y } } // とりうるすべての fizzbuzz 入力数列候補
                     .map { x -> x.toList().filter { _-> aRule.isFizzbuzz(_) } } // fizzbuzz 数のみの数列へ変換
                     .filterNot { _ -> _.isEmpty() } // 空リストは不要
